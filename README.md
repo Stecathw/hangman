@@ -1,16 +1,29 @@
-# hangman
+# HANGMAN
 
-A new Flutter project.
+Little hangman game collaborative project.
 
-## Getting Started
+## Logigramme
+https://miro.com/app/board/uXjVP0PJHEg=/
 
-This project is a starting point for a Flutter application.
+## API words :
 
-A few resources to get you started if this is your first Flutter project:
+Rapid api to get words and clues from :
+https://www.wordsapi.com/#try
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## State manangement :
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Using cubit and 3 layers architecture:
+https://bloclibrary.dev/#/fluttertodostutorial
+
+## Branches
+
+- main : to make newer version only ! (dev merge into main from a merge request)
+- dev : to get code from and create/merge branch
+- feature/<feature-name OR feature-scope> : to build new features and code before merge request into dev.
+
+## Launch project
+
+Copy this repo : git clone <url>.
+Be sure to work on dev branch and create/merge branch from there !
+Don't forgot to install dependencies : flutter get pub.
+Run locally on emulator.
