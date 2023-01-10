@@ -56,3 +56,6 @@ app.*.map.json
 
 # Built Visual Studio Code Extensions
 *.vsix
+
+# .env file
+*.env

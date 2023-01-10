@@ -3,14 +3,17 @@
 Little hangman game collaborative project.
 
 ## Logigramme
-https://miro.com/app/board/uXjVP0PJHEg=/
+
+Hangman gam flow chart : https://miro.com/app/board/uXjVP0PJHEg=/
+
+API call use Cubit (Bloc) pattern : https://miro.com/app/board/uXjVPzyKnrc=/ (cf state management)
 
 ## API words :
 
-Rapid api to get words and clues from :
-https://www.wordsapi.com/#try
+Rapid api to get words from :
+https://rapidapi.com/sheharyar566/api/random-words5
 
-## State manangement :
+## State management :
 
 Using cubit and 3 layers architecture:
 https://bloclibrary.dev/#/fluttertodostutorial
@@ -26,4 +29,12 @@ https://bloclibrary.dev/#/fluttertodostutorial
 Copy this repo : git clone <url>.
 Be sure to work on dev branch and create/merge branch from there !
 Don't forgot to install dependencies : flutter get pub.
+Don't forgot to add envionnment variables to a .env file at root of project.
 Run locally on emulator.
+
+## ENV
+
+At root of folder, create a .env file :
+API_KEY : Your private api key from rapid api
+API_HOST : Your private host api url from rapid api
+
