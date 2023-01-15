@@ -15,6 +15,7 @@ To maintain and update state we are using cubit and 3 layers architecture:
 https://bloclibrary.dev/#/fluttertodostutorial
 
 Working principle :
+
 ![Architecture](schema/QCS_Cubit.jpg)
 
 ## Branches
@@ -25,16 +26,16 @@ Working principle :
 
 ## Launching project
 
-Copy this repo : git clone <url>.
-Be sure to work on dev branch and create/merge branch from there !
-Don't forgot to install dependencies : flutter get pub.
-Don't forgot to add envionnment variables to a .env file at root of project.
-Run locally on emulator.
+- Copy this repo : git clone <url>.
+- Be sure to work on dev branch and create/merge branch from there !
+- Don't forgot to install dependencies : flutter get pub.
+- Don't forgot to add envionnment variables to a .env file at root of project.
+- Run locally on android emulator pixel3a.
 
 ## Environnement variables
 
 At root of folder, create a .env file with following variables:
 
-[API_KEY]  : Your private api key from rapid api
-[API_HOST] : Your private host api url from rapid api
+- [API_KEY]  : Your private api key from rapid api
+- [API_HOST] : Your private host api url from rapid api
 
