@@ -1,4 +1,5 @@
 // import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter/foundation.dart';
 import 'package:hangman/models/word.dart';
 import 'package:hangman/repository/environment.dart';
 import 'package:http/http.dart' as http;
@@ -9,11 +10,14 @@ class WordRepository {
   /// Returns a list of random [words].
   Future<List<Word>> getFiveFromApi() async {
     var url =
-        "https://${Environment.apiHost}/getMultipleRandom?count=5&minLength=3&maxLgth=7";
+        "https://${Environment.apiHost}/getMultipleRandom?count=5&minLength=3&maxLength=7";
     var headers = {
       'X-RapidAPI-Key': Environment.apiKey,
     };
     final uri = Uri.parse(url);
+    if (kDebugMode) {
+      print(uri);
+    }
     final response = await http.get(uri, headers: headers);
     if (response.statusCode == 200) {
       final json = jsonDecode(response.body) as List;
@@ -22,7 +26,7 @@ class WordRepository {
       }).toList();
       return result;
     } else {
-      throw "Error : ${response.statusCode}";
+      throw "Error : ${jsonDecode(response.body)}";
     }
   }
 
