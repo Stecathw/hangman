@@ -7,7 +7,7 @@ Widget letter(String character, bool hidden) {
     width: 50,
     padding: const EdgeInsets.all(12.0),
     decoration: BoxDecoration(
-      color: AppColor.primaryColorDark,
+      color: AppColor.primaryColorRed,
       borderRadius: BorderRadius.circular(4.0),
     ),
     child: Visibility(
@@ -17,7 +17,7 @@ Widget letter(String character, bool hidden) {
         style: const TextStyle(
           color: Colors.white,
           fontWeight: FontWeight.bold,
-          fontSize: 40.0,
+          fontSize: 30.0,
         ),
       ),
     ),
