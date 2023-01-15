@@ -12,12 +12,13 @@ class GameCubit extends Cubit<GameState> {
     emit(LoadingGameState());
     try {
       // Choose between fecthing local words or from the API
-      final words = await _repository.getFiveFromLocal();
-      if (kDebugMode) {
-        print(words.map((w) => w.word));
-      }
+      final words = await _repository.getFiveFromApi();
       final random = new Random();
       final chosenWord = words[random.nextInt(words.length)];
+      if (kDebugMode) {
+        print(words.map((w) => w.word));
+        print(chosenWord.word);
+      }
       emit(ResponseGameState(words, chosenWord));
     } catch (err) {
       emit(ErrorGameState(err.toString()));

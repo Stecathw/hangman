@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hangman/ui/colors.dart';
+import 'package:hangman/game/views/utils/colors.dart';
 
 Widget letter(String character, bool hidden) {
   return Container(
