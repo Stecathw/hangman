@@ -9,7 +9,8 @@ class GameCubit extends Cubit<GameState> {
   Future<void> fecthWords() async {
     emit(LoadingGameState());
     try {
-      final response = await _repository.getAll();
+      // Choose between fecthing local words or from the API
+      final response = await _repository.getFiveFromLocal();
       emit(ResponseGameState(response));
     } catch (err) {
       emit(ErrorGameState(err.toString()));

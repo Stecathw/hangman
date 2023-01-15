@@ -5,10 +5,11 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class WordRepository {
-  Future<List<Word>> getAll() async {
-    // Params : MultipleRandom, number of words and words length range
+  /// Makes an API call to [apiHost] using your [apiKey].
+  /// Returns a list of random [words].
+  Future<List<Word>> getFiveFromApi() async {
     var url =
-        "https://${Environment.apiHost}/getMultipleRandom?count=5&minLength=3&maxLength=7";
+        "https://${Environment.apiHost}/getMultipleRandom?count=5&minLength=3&maxLgth=7";
     var headers = {
       'X-RapidAPI-Key': Environment.apiKey,
     };
@@ -23,5 +24,13 @@ class WordRepository {
     } else {
       throw "Error : ${response.statusCode}";
     }
+  }
+
+  /// Returns a list of [Words] whithout calling the API.
+  Future<List<Word>> getFiveFromLocal() async {
+    final result = ['random', 'word', 'for', 'testing', 'purpose'].map((e) {
+      return Word(word: e);
+    }).toList();
+    return result;
   }
 }
