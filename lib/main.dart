@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hangman/game/cubit/game_cubit.dart';
-import 'package:hangman/game/views/game_page.dart';
+import 'package:hangman/game_page/cubit/game_cubit.dart';
+import 'package:hangman/start_page/start_page.dart';
+import 'package:hangman/game_page/views/game_page.dart';
 import 'package:hangman/repository/environment.dart';
 import 'package:hangman/repository/word_repository.dart';
 
@@ -18,8 +19,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
         create: ((context) => GameCubit(WordRepository())),
-        child: const MaterialApp(
-          home: GamePage(),
+        child: MaterialApp(
+          initialRoute: '/',
+          routes: {
+            '/': (context) => const StartPage(),
+            '/game': (context) => const GamePage(),
+          },
         ));
   }
 }

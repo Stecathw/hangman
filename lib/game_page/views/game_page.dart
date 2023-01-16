@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hangman/game/cubit/game_cubit.dart';
-import 'package:hangman/game/cubit/game_state.dart';
-import 'package:hangman/game/views/widgets/letter.dart';
-import 'package:hangman/game/views/utils/colors.dart';
+import 'package:hangman/game_page/cubit/game_cubit.dart';
+import 'package:hangman/game_page/cubit/game_state.dart';
+import 'package:hangman/game_page/views/widgets/letter.dart';
+import 'package:hangman/utils/colors.dart';
 
 class GamePage extends StatefulWidget {
   const GamePage({Key? key}) : super(key: key);

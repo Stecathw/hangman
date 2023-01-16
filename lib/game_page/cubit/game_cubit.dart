@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hangman/game/cubit/game_state.dart';
+import 'package:hangman/game_page/cubit/game_state.dart';
 import 'package:hangman/repository/word_repository.dart';
 import 'dart:math';
 
