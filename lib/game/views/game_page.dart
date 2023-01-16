@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hangman/game/cubit/game_cubit.dart';
 import 'package:hangman/game/cubit/game_state.dart';
 import 'package:hangman/game/views/widgets/letter.dart';
+import 'package:hangman/game/views/widgets/keyboard.dart';
 import 'package:hangman/game/views/utils/colors.dart';
 
 class GamePage extends StatefulWidget {
@@ -37,17 +38,29 @@ class _GamePageState extends State<GamePage> {
             );
           } else if (state is ResponseGameState) {
             final wordToGuess = state.chosenWord;
-            return Center(
-                child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: wordToGuess
+            //letterUsed = state.selectedChar;
+            //keyboard = state.;
+            return Column(
+              children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: wordToGuess
                   .getLetters()
                   .map((e) => letter(
                       e.toUpperCase(),
                       !ResponseGameState.selectedChar.contains(
                           e.toUpperCase()))) // Hidding non-guessed letters
                   .toList(),
-            ));
+              ),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              //   children :
+                //   <Widget>[keyboard()],
+              // ),
+                Expanded(child: keyboard()),
+              ],
+          );
+
           } else if (state is ErrorGameState) {
             return Center(child: Text(state.error));
           }

@@ -1,3 +1,4 @@
+// Classe correspondant au mot qui sera à deviner et qui sera split dans la game_page
 class Word {
   final String word;
 

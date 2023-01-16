@@ -30,7 +30,7 @@ class WordRepository {
     }
   }
 
-  /// Returns a list of [Words] whithout calling the API.
+  /// Returns a list of [Words] without calling the API.
   Future<List<Word>> getFiveFromLocal() async {
     final result = ['random', 'word', 'for', 'testing', 'purpose'].map((e) {
       return Word(word: e);
