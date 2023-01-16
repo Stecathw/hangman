@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hangman/game/cubit/game_cubit.dart';
-import 'package:hangman/game/cubit/game_state.dart';
-import 'package:hangman/game/views/widgets/letter.dart';
-import 'package:hangman/game/views/widgets/keyboard.dart';
-import 'package:hangman/game/views/utils/colors.dart';
+import 'package:hangman/game_page/cubit/game_cubit.dart';
+import 'package:hangman/game_page/cubit/game_state.dart';
+import 'package:hangman/game_page/views/widgets/letter.dart';
+import 'package:hangman/game_page/views/widgets/keyboard.dart';
+import 'package:hangman/utils/colors.dart';
 
 class GamePage extends StatefulWidget {
   const GamePage({Key? key}) : super(key: key);
@@ -42,25 +42,24 @@ class _GamePageState extends State<GamePage> {
             //keyboard = state.;
             return Column(
               children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: wordToGuess
-                  .getLetters()
-                  .map((e) => letter(
-                      e.toUpperCase(),
-                      !ResponseGameState.selectedChar.contains(
-                          e.toUpperCase()))) // Hidding non-guessed letters
-                  .toList(),
-              ),
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              //   children :
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: wordToGuess
+                      .getLetters()
+                      .map((e) => letter(
+                          e.toUpperCase(),
+                          !ResponseGameState.selectedChar.contains(
+                              e.toUpperCase()))) // Hidding non-guessed letters
+                      .toList(),
+                ),
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                //   children :
                 //   <Widget>[keyboard()],
-              // ),
+                // ),
                 Expanded(child: keyboard()),
               ],
-          );
-
+            );
           } else if (state is ErrorGameState) {
             return Center(child: Text(state.error));
           }
