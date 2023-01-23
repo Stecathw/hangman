@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hangman/game_page/cubit/game_cubit.dart';
-import 'package:hangman/game_page/cubit/game_state.dart';
+import 'package:hangman/game_page/cubit/word_cubit.dart';
+import 'package:hangman/game_page/cubit/word_state.dart';
 import 'package:hangman/game_page/views/widgets/letter.dart';
 import 'package:hangman/game_page/views/widgets/keyboard.dart';
 import 'package:hangman/utils/colors.dart';
@@ -18,8 +18,8 @@ class _GamePageState extends State<GamePage> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((timestamp) {
-      final cubit = context.read<GameCubit>();
-      cubit.fetchWords();
+      final cubit = context.read<WordCubit>();
+      cubit.getRandomWord();
     });
   }
 
@@ -30,37 +30,47 @@ class _GamePageState extends State<GamePage> {
         title: const Text('A little hangman game'),
         backgroundColor: AppColor.primaryColorRed,
       ),
-      body: BlocBuilder<GameCubit, GameState>(
+      body: BlocBuilder<WordCubit, WordState>(
         builder: (context, state) {
-          if (state is InitGameState || state is LoadingGameState) {
+          if (state is InitWordState || state is LoadingWordState) {
             return const Center(
               child: CircularProgressIndicator(),
             );
-          } else if (state is ResponseGameState) {
+          } else if (state is ResponseWordState) {
             final wordToGuess = state.chosenWord;
-            //letterUsed = state.selectedChar;
-            //keyboard = state.;
+            final listOfletters = state.chosenLetters;
+            // final List<String> selectedLetters = [];
+            // final letterUsed = state.selectedChar;
+            // keyboard = state.;
             return Column(
               children: [
                 Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
+                        child: SizedBox(
+                          width: 200,
+                          height: 250,
+                          child: Image.asset("assets/hang.png"),
+                        ),
+                      ),
+                    ]),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: wordToGuess
                       .getLetters()
                       .map((e) => letter(
                           e.toUpperCase(),
-                          !ResponseGameState.selectedChar.contains(
+                          !listOfletters.contains(
                               e.toUpperCase()))) // Hidding non-guessed letters
                       .toList(),
                 ),
-                // Row(
-                //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                //   children :
-                //   <Widget>[keyboard()],
-                // ),
-                Expanded(child: keyboard()),
+                Expanded(child: keyboard(context, state)),
               ],
             );
-          } else if (state is ErrorGameState) {
+          } else if (state is ErrorWordState) {
             return Center(child: Text(state.error));
           }
           return const Center(child: Text('Nothing to display'));
