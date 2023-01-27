@@ -8,7 +8,7 @@ import 'dart:convert';
 class WordRepository {
   /// Makes an API call to [apiHost] using your [apiKey].
   /// Returns a list of random [words].
-  Future<List<Word>> getFiveFromApi() async {
+  Future<List<Word>> fetchOne() async {
     var url =
         "https://${Environment.apiHost}/getMultipleRandom?count=5&minLength=3&maxLength=7";
     var headers = {
@@ -30,7 +30,7 @@ class WordRepository {
     }
   }
 
-  /// Returns a list of [Words] whithout calling the API.
+  /// Returns a list of [Words] without calling the API.
   Future<List<Word>> getFiveFromLocal() async {
     final result = ['random', 'word', 'for', 'testing', 'purpose'].map((e) {
       return Word(word: e);

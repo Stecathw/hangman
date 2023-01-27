@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hangman/game_page/cubit/game_cubit.dart';
-import 'package:hangman/start_page/start_page.dart';
-import 'package:hangman/game_page/views/game_page.dart';
+import 'package:hangman/cubit/game_cubit.dart';
+import 'package:hangman/cubit/word_cubit.dart';
+import 'package:hangman/views/start_page.dart';
+import 'package:hangman/views/game_page.dart';
 import 'package:hangman/repository/environment.dart';
 import 'package:hangman/repository/word_repository.dart';
+import 'package:hangman/cubit/main_cubit_observer.dart';
 
 Future<void> main() async {
+  Bloc.observer = AppBlocObserver();
   await dotenv.load(fileName: Environment.fileName);
   runApp(const MyApp());
 }
@@ -17,8 +20,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-        create: ((context) => GameCubit(WordRepository())),
+    return MultiBlocProvider(
+        providers: [
+          BlocProvider<WordCubit>(
+              create: ((context) => WordCubit(WordRepository()))),
+          BlocProvider<GameCubit>(create: (context) => GameCubit()),
+        ],
         child: MaterialApp(
           initialRoute: '/',
           routes: {
@@ -28,3 +35,6 @@ class MyApp extends StatelessWidget {
         ));
   }
 }
+
+// Put a multibloc provider
+

@@ -1,5 +1,5 @@
 name: hangman
-description: A new Flutter project.
+description: A hangman game using cubit to learn state management in Flutter.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -31,9 +31,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
-
-  # The following adds the Cupertino Icons font to your application.
   flutter_bloc: ^8.1.1
   http: ^0.13.5
   flutter_dotenv: ^5.0.2
@@ -62,6 +59,14 @@ flutter:
   assets:
     # - assets/
     - assets/hangman.png
+    - assets/hang.png
+    - assets/hang.png
+    - assets/head.png
+    - assets/body.png
+    - assets/ra.png
+    - assets/la.png
+    - assets/rl.png
+    - assets/ll.png
     - .env
 
   # To add assets to your application, add an assets section, like this:
