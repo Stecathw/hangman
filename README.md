@@ -7,19 +7,19 @@ Les mots à deviner sont en anglais.
 ## Aperçu global :
 
 + La page de démarrage :
-![StartPage](schema/start_page.jpg)
+![StartPage](schema/start_page.png)
 
 + Durant une partie :
-![PlayPage](schema/play_page.jpg)
+![PlayPage](schema/play_page.png)
 
 + Si pendu avant de trouver le mot :
-![HangPage](schema/hang_page.jpg)
+![HangPage](schema/hang_page.png)
 
 + Si le mot est deviné avant d'être pendu :
-![WonPage](schema/won_page.jpg)
+![WonPage](schema/won_page.png)
 
 + Pour tricher (mais ce n'est pas drôle...) :
-![Debug](schema/debug.jpg)
+![Debug](schema/debug.png)
 
 ## Genèse :
 
