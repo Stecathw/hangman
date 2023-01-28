@@ -7,9 +7,11 @@ Les mots à deviner sont en anglais.
 ## Aperçu global :
 
 + La page de démarrage :
-![StartPage](schema/start_page.png =250x)
+
+![StartPage](schema/start_page.png | height=150)
 
 + Durant une partie :
+
 ![PlayPage](schema/play_page.png)
 
 + Si pendu avant de trouver le mot :
