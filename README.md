@@ -7,7 +7,7 @@ Les mots à deviner sont en anglais.
 ## Aperçu global :
 
 + La page de démarrage :
-![StartPage](schema/start_page.png)
+![StartPage](schema/start_page.png =250x)
 
 + Durant une partie :
 ![PlayPage](schema/play_page.png)
