@@ -33,6 +33,10 @@ class _GamePageState extends State<GamePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () => Navigator.pushNamed(context, "/"),
+        ),
         title: const Text('A little hangman game'),
         backgroundColor: AppColor.primaryColorRed,
       ),
