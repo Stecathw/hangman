@@ -12,7 +12,7 @@ class WordCubit extends Cubit<WordState> {
     emit(LoadingWordState());
     try {
       // Choose between fecthing local words or from the API
-      final words = await _repository.getFiveFromLocal();
+      final words = await _repository.fetchWords();
       final random = new Random();
       final chosenWord = words[random.nextInt(words.length)];
       if (kDebugMode) {
