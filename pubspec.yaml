@@ -59,6 +59,7 @@ flutter:
   assets:
     # - assets/
     - assets/hangman.png
+    - assets/happyman.jpg
     - assets/hang.png
     - assets/hang.png
     - assets/head.png
