@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hangman/cubit/game_cubit.dart';
+import 'package:hangman/cubits/game_cubit.dart';
 import 'package:hangman/models/word.dart';
 import 'package:hangman/widgets/letter.dart';
 

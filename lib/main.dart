@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hangman/cubit/game_cubit.dart';
-import 'package:hangman/cubit/word_cubit.dart';
+import 'package:hangman/cubits/game_cubit.dart';
+import 'package:hangman/cubits/word_cubit.dart';
 import 'package:hangman/views/start_page.dart';
 import 'package:hangman/views/game_page.dart';
 import 'package:hangman/repository/environment.dart';
 import 'package:hangman/repository/word_repository.dart';
-import 'package:hangman/cubit/main_cubit_observer.dart';
+import 'package:hangman/cubits/main_cubit_observer.dart';
 
 Future<void> main() async {
   Bloc.observer = AppBlocObserver();

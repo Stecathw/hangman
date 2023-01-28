@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hangman/cubit/game_cubit.dart';
-import 'package:hangman/cubit/game_state.dart';
-import 'package:hangman/cubit/word_cubit.dart';
-import 'package:hangman/cubit/word_state.dart';
+import 'package:hangman/cubits/game_cubit.dart';
+import 'package:hangman/cubits/game_state.dart';
+import 'package:hangman/cubits/word_cubit.dart';
+import 'package:hangman/cubits/word_state.dart';
+import 'package:hangman/widgets/end_game.dart';
 import 'package:hangman/widgets/hang_image.dart';
 import 'package:hangman/widgets/keyboard.dart';
 import 'package:hangman/utils/colors.dart';
@@ -45,25 +46,27 @@ class _GamePageState extends State<GamePage> {
             final word = state.chosenWord;
             return BlocBuilder<GameCubit, GameState>(
                 builder: (BuildContext context, state) {
-              // TODO : state à gérer pour la fin du jeu
-              // if state is playGameState return column ()
-              // else if state is lostGameState return
-              return Column(
-                children: [
-                  Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[hangImage(context)]),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: wordToGuess(context, word),
-                  ),
-                  Expanded(child: keyboard(context, word)),
-                ],
-              );
+              if (state is PlayGameState) {
+                return Column(
+                  children: [
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[hangImage(context)]),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: wordToGuess(context, word),
+                    ),
+                    Expanded(child: keyboard(context, word)),
+                  ],
+                );
+              } else if (state is WonGameState) {
+                return endGame(context, true, word);
+              } else if (state is LostGameState) {
+                return endGame(context, false, word);
+              }
+              return const Text('Nothing to display');
             });
-
-            //
           } else if (state is ErrorWordState) {
             return Center(child: Text(state.error));
           }
