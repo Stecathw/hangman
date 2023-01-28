@@ -11,7 +11,8 @@ Les mots à deviner sont en anglais.
 <img src="schema/start_page.png" width=auto height=25%>
 
 + Durant une partie :
-![PlayPage](schema/play_page.png)
+
+<img src="schema/play_page.png" width=auto height=25%>
 
 + Si pendu avant de trouver le mot :
 
