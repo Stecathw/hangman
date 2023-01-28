@@ -26,6 +26,9 @@ Les mots à deviner sont en anglais.
 
 <img src="schema/debug.png" width=auto height=25%>
 
+## Vidéo de 10 min
+
+https://ag3il-my.sharepoint.com/:v:/g/personal/singhp_3il_fr/EY33FncF3o5Ps8LIzr11v00Brb6ZZAsKSUEytXNhU33_-A?e=XieBOR
 
 ## Genèse :
 

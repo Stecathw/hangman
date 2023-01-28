@@ -35,6 +35,3 @@ class MyApp extends StatelessWidget {
         ));
   }
 }
-
-// Put a multibloc provider
-

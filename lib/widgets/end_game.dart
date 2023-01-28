@@ -13,7 +13,7 @@ Widget endGame(BuildContext context, bool isWon, Word word) {
       child: Column(
     children: <Widget>[
       Padding(
-        padding: const EdgeInsets.fromLTRB(20, 100, 20, 100),
+        padding: const EdgeInsets.fromLTRB(20, 100, 20, 50),
         child: SizedBox(
           width: 250,
           height: 250,
@@ -21,10 +21,8 @@ Widget endGame(BuildContext context, bool isWon, Word word) {
         ),
       ),
       Column(
-        // padding: const EdgeInsets.fromLTRB(20, 20, 20, 100),
         crossAxisAlignment: CrossAxisAlignment.center,
         verticalDirection: VerticalDirection.down,
-        // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Text(
             msg,
@@ -52,27 +50,29 @@ Widget endGame(BuildContext context, bool isWon, Word word) {
           )
         ],
       ),
-      // SizedBox(
-      //   height: 80,
-      //   width: 150,
-      //   child: ElevatedButton(
-      //     style: ButtonStyle(
-      //       backgroundColor:
-      //           MaterialStatePropertyAll<Color>(AppColor.primaryColorRed),
-      //     ),
-      //     onPressed: () {
-      //       Navigator.pushNamed(context, "/game");
-      //     },
-      //     child: const Text(
-      //       'REPLAY',
-      //       style: TextStyle(
-      //         fontWeight: FontWeight.bold,
-      //         fontSize: 28,
-      //         letterSpacing: 3,
-      //       ),
-      //     ),
-      //   ),
-      // )
+      Padding(
+          padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
+          child: SizedBox(
+            height: 80,
+            width: 170,
+            child: ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor:
+                    MaterialStatePropertyAll<Color>(AppColor.primaryColorRed),
+              ),
+              onPressed: () {
+                Navigator.pushNamed(context, "/");
+              },
+              child: const Text(
+                'REPLAY',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 28,
+                  letterSpacing: 3,
+                ),
+              ),
+            ),
+          )),
     ],
   ));
 }
