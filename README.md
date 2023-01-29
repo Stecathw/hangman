@@ -8,23 +8,15 @@ Les mots à deviner sont en anglais.
 
 + La page de démarrage :
 
-<img src="schema/start_page.png" width=auto height=25%>
+<img src="schema/start_page.png">
 
 + Durant une partie :
 
-<img src="schema/play_page.png" width=auto height=25%>
+<img src="schema/play_page.png">
 
 + Si pendu avant de trouver le mot :
 
-<img src="schema/hang_page.png" width=auto height=25%>
-
-+ Si le mot est deviné avant d'être pendu :
-
-<img src="schema/won_page.png" width=auto height=25%>
-
-+ Pour tricher (mais ce n'est pas drôle...) :
-
-<img src="schema/debug.png" width=auto height=25%>
+<img src="schema/hang_page.png">
 
 ## Vidéo de 10 min
 
@@ -44,24 +36,24 @@ De même il s'agit pour nous de s'initier au framework Flutter et au language Da
 Avant tout développement, nous avons "brainstormé" sur le fonctionnement global de notre pendu et imaginé 
 un MVP (Minmal Viable Product) évolutif.
 
-Pour cela nous avons travaillé autour de ce logigramme :
+Pour cela nous avons travaillé autour de ce logigramme:
 
 ![Project](schema/QCS_project.jpg)
 
-Le projet est versionné avec GIT et enrespectant les standarts sur les commits et les conseils sur la gestion des branches. La branche main de ce projet est donc la version du jeu sortie, les autres branches sont réservées au développement.
+Le projet est versionné avec GIT et en respectant les standards sur les commits et les conseils sur la gestion des branches. La branche main de ce projet est donc la version du jeu sortie, les autres branches sont réservées au développement.
 
 ## Gestion de l'état :
 
-C'est la partie la plus difficile à prendre en main lorsqu'on démarre avec Flutter. La différence fondamentale avec le web est la reconstruction complète du widget lorsque celui-ci est à l'écoute d'un changement d'état. Au contraire du web où on cherche à avoir de la réactivité sur le ou les seuls élements qui devant changer indépendamments du reste de la page.
+C'est la partie la plus difficile à prendre en main lorsqu'on démarre avec Flutter. La différence fondamentale avec le web est la reconstruction complète du widget lorsque celui-ci est à l'écoute d'un changement d'état. Dans le web, on cherche plutôt à avoir de la réactivité sur le ou les seuls élements devant changer indépendamments du reste de la page.
 
-Pour gérer l'état de l'application nous utilisations l'architure 3 couches, basée sur le principe Bloc, présentées ici :
+Pour gérer l'état de l'application nous utilisations l'architecture 3 couches, basée sur le principe Bloc, présentées ici :
 https://bloclibrary.dev/#/fluttertodostutorial
 
 Ainsi, la logigue du cubit joue l'intermédiaire entre l'UI et son état et vice versa. 
 
 De plus, le repository permet de joindre une API et en cas de changement de cette dernière nous pouvons facilement adapter notre code (et nous avons dû le faire plusieurs fois avant d'en trouver une correcte et simple).
 
-Nous avons donc utilisé le package flutter_bloc avec les cubit. Voici un schéma représentant le fonctionnement de la requête API sur le principe du Bloc
+Nous avons donc utilisé le package flutter_bloc avec les cubits. Voici un schéma représentant le fonctionnement de la requête API sur le principe du Bloc :
 
 ![Architecture](schema/QCS_Cubit.jpg)
 

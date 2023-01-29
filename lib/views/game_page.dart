@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hangman/cubits/game_cubit.dart';
-import 'package:hangman/cubits/game_state.dart';
 import 'package:hangman/cubits/word_cubit.dart';
 import 'package:hangman/cubits/word_state.dart';
-import 'package:hangman/widgets/end_game.dart';
-import 'package:hangman/widgets/hang_image.dart';
-import 'package:hangman/widgets/keyboard.dart';
+import 'package:hangman/widgets/bold_text_field.dart';
+import 'package:hangman/widgets/error.dart';
 import 'package:hangman/utils/colors.dart';
-import 'package:hangman/widgets/word_guess.dart';
+import 'package:hangman/widgets/main_game.dart';
 
 class GamePage extends StatefulWidget {
   const GamePage({Key? key}) : super(key: key);
@@ -37,7 +35,7 @@ class _GamePageState extends State<GamePage> {
           icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () => Navigator.pushNamed(context, "/"),
         ),
-        title: const Text('A little hangman game'),
+        title: boldTextField('A little hangman game...', 20, 2),
         backgroundColor: AppColor.primaryColorRed,
       ),
       body: BlocBuilder<WordCubit, WordState>(
@@ -48,33 +46,11 @@ class _GamePageState extends State<GamePage> {
             );
           } else if (state is ResponseWordState) {
             final word = state.chosenWord;
-            return BlocBuilder<GameCubit, GameState>(
-                builder: (BuildContext context, state) {
-              if (state is PlayGameState) {
-                return Column(
-                  children: [
-                    Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[hangImage(context)]),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: wordToGuess(context, word),
-                    ),
-                    Expanded(child: keyboard(context, word)),
-                  ],
-                );
-              } else if (state is WonGameState) {
-                return endGame(context, true, word);
-              } else if (state is LostGameState) {
-                return endGame(context, false, word);
-              }
-              return const Text('Nothing to display');
-            });
+            return mainGame(context, word);
           } else if (state is ErrorWordState) {
-            return Center(child: Text(state.error));
+            return error(state.error);
           }
-          return const Center(child: Text('Nothing to display'));
+          return error('ErrorPage');
         },
       ),
     );

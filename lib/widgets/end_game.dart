@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hangman/cubits/game_cubit.dart';
 import 'package:hangman/models/word.dart';
 import 'package:hangman/utils/colors.dart';
+import 'package:hangman/widgets/bold_text_field.dart';
 
 Widget endGame(BuildContext context, bool isWon, Word word) {
   final numberOfTries = context.read<GameCubit>().getTries();
@@ -24,54 +25,25 @@ Widget endGame(BuildContext context, bool isWon, Word word) {
         crossAxisAlignment: CrossAxisAlignment.center,
         verticalDirection: VerticalDirection.down,
         children: [
-          Text(
-            msg,
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 40,
-              letterSpacing: 3,
-            ),
-          ),
-          Text(
-            'Word : "$wordString"',
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 25,
-              letterSpacing: 3,
-            ),
-          ),
-          Text(
-            'Bad tries : x$numberOfTries',
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 25,
-              letterSpacing: 3,
-            ),
-          )
+          boldTextField(msg, 40, 3),
+          boldTextField('Word : "$wordString"', 25, 3),
+          boldTextField('Bad tries : x$numberOfTries', 25, 3)
         ],
       ),
       Padding(
           padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
           child: SizedBox(
             height: 80,
-            width: 170,
+            width: 150,
             child: ElevatedButton(
-              style: ButtonStyle(
-                backgroundColor:
-                    MaterialStatePropertyAll<Color>(AppColor.primaryColorRed),
-              ),
-              onPressed: () {
-                Navigator.pushNamed(context, "/");
-              },
-              child: const Text(
-                'REPLAY',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 28,
-                  letterSpacing: 3,
+                style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStatePropertyAll<Color>(AppColor.primaryColorRed),
                 ),
-              ),
-            ),
+                onPressed: () {
+                  Navigator.pushNamed(context, "/");
+                },
+                child: boldTextField('HOME', 28, 3)),
           )),
     ],
   ));

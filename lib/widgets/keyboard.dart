@@ -21,7 +21,6 @@ Widget keyboard(BuildContext context, Word word) {
                     onTap: () {
                       if (!isChosen) {
                         gameCubit.addLetter(l, word);
-                        // gameCubit.getChosenLetters();
                       }
                     },
                     child: letter(l, isChosen)));
