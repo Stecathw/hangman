@@ -8,19 +8,15 @@ Les mots à deviner sont en anglais.
 
 + La page de démarrage :
 
-<img src="schema/start_page.png" width="auto" height="25%">
+<img src="schema/start_page.png">
 
 + Durant une partie :
 
-<img src="schema/play_page.png" width="auto" height="25%">
+<img src="schema/play_page.png">
 
 + Si pendu avant de trouver le mot :
 
-<img src="schema/hang_page.png" width="auto" height="25%">
-
-+ Pour tricher (mais ce n'est pas drôle...) :
-
-<img src="schema/debug.png" width="auto" height="25%">
+<img src="schema/hang_page.png">
 
 ## Vidéo de 10 min
 
