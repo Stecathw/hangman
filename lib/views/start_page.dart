@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hangman/utils/colors.dart';
+import 'package:hangman/widgets/bold_text_field.dart';
 
 class StartPage extends StatelessWidget {
   const StartPage({Key? key}) : super(key: key);
@@ -23,22 +24,14 @@ class StartPage extends StatelessWidget {
                 height: 80,
                 width: 150,
                 child: ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStatePropertyAll<Color>(
-                        AppColor.primaryColorRed),
-                  ),
-                  onPressed: () {
-                    Navigator.pushNamed(context, "/game");
-                  },
-                  child: const Text(
-                    'PLAY',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 28,
-                      letterSpacing: 3,
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStatePropertyAll<Color>(
+                          AppColor.primaryColorRed),
                     ),
-                  ),
-                ),
+                    onPressed: () {
+                      Navigator.pushNamed(context, "/game");
+                    },
+                    child: boldTextField('PLAY', 28, 3)),
               )
             ]),
       ),
