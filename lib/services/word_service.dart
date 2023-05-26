@@ -1,18 +1,21 @@
 import 'dart:convert';
-
 import 'package:flutter/foundation.dart';
 import 'package:hangman/models/word.dart';
-import 'package:hangman/repository/environment.dart';
 import 'package:http/http.dart' as http;
 
 class WordService {
+  final String apiKey;
+  final String apiHost;
+
+  WordService({required this.apiKey, required this.apiHost});
+
   /// Makes an API call to get multiple random words.
   /// Returns a list of random [Word] objects.
   Future<List<Word>> fetchWords() async {
     final url =
-        "https://${Environment.apiHost}/getMultipleRandom?count=5&minLength=3&maxLength=7";
+        "https://$apiHost/getMultipleRandom?count=5&minLength=3&maxLength=7";
     final headers = {
-      'X-RapidAPI-Key': Environment.apiKey,
+      'X-RapidAPI-Key': apiKey,
     };
 
     final uri = Uri.parse(url);
