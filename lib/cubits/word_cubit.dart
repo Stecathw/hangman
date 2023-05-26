@@ -11,7 +11,7 @@ class WordCubit extends Cubit<WordState> {
   Future<void> getRandomWord() async {
     emit(LoadingWordState());
     try {
-      // Choose between fecthing local words or from the API
+      // Choose between fetching local words or from the API
       final words = await _repository.fetchWords();
       final random = new Random();
       final chosenWord = words[random.nextInt(words.length)];
