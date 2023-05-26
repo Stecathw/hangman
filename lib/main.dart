@@ -3,6 +3,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hangman/cubits/game_cubit.dart';
 import 'package:hangman/cubits/word_cubit.dart';
+import 'package:hangman/services/word_service.dart';
 import 'package:hangman/views/start_page.dart';
 import 'package:hangman/views/game_page.dart';
 import 'package:hangman/repository/environment.dart';
@@ -20,18 +21,28 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Create an instance of WordService
+    final wordService = WordService();
+
+    // Create an instance of WordRepository and inject the WordService instance
+    final wordRepository = WordRepository(wordService);
+
     return MultiBlocProvider(
-        providers: [
-          BlocProvider<WordCubit>(
-              create: ((context) => WordCubit(WordRepository()))),
-          BlocProvider<GameCubit>(create: (context) => GameCubit()),
-        ],
-        child: MaterialApp(
-          initialRoute: '/',
-          routes: {
-            '/': (context) => const StartPage(),
-            '/game': (context) => const GamePage(),
-          },
-        ));
+      providers: [
+        BlocProvider<WordCubit>(
+          create: (context) => WordCubit(wordRepository),
+        ),
+        BlocProvider<GameCubit>(
+          create: (context) => GameCubit(),
+        ),
+      ],
+      child: MaterialApp(
+        initialRoute: '/',
+        routes: {
+          '/': (context) => const StartPage(),
+          '/game': (context) => const GamePage(),
+        },
+      ),
+    );
   }
 }
