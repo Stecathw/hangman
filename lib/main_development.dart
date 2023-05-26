@@ -6,13 +6,10 @@ import 'package:hangman/cubits/word_cubit.dart';
 import 'package:hangman/services/word_service.dart';
 import 'package:hangman/views/start_page.dart';
 import 'package:hangman/views/game_page.dart';
-import 'package:hangman/repository/environment.dart';
 import 'package:hangman/repository/word_repository.dart';
-import 'package:hangman/cubits/main_cubit_observer.dart';
 
 Future<void> main() async {
-  Bloc.observer = AppBlocObserver();
-  await dotenv.load(fileName: Environment.fileName);
+  await dotenv.load(); // Loads .env by default
   runApp(const MyApp());
 }
 
@@ -21,10 +18,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Create an instance of WordService
-    final wordService = WordService();
+    final wordService = WordService(
+      apiKey: dotenv.env['API_KEY']!,
+      apiHost: dotenv.env['API_HOST']!,
+    );
 
-    // Create an instance of WordRepository and inject the WordService instance
     final wordRepository = WordRepository(wordService);
 
     return MultiBlocProvider(
