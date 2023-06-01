@@ -28,10 +28,18 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<WordCubit>(
-          create: (context) => WordCubit(wordRepository),
+          create: (context) {
+            final wordCubit = WordCubit(wordRepository);
+            wordCubit.getRandomWord();
+            return wordCubit;
+          },
         ),
         BlocProvider<GameCubit>(
-          create: (context) => GameCubit(),
+          create: (context) {
+            final gameCubit = GameCubit();
+            gameCubit.reset();
+            return gameCubit;
+          },
         ),
       ],
       child: MaterialApp(
