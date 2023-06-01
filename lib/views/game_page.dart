@@ -8,23 +8,18 @@ import 'package:hangman/widgets/error.dart';
 import 'package:hangman/utils/colors.dart';
 import 'package:hangman/widgets/main_game.dart';
 
-class GamePage extends StatefulWidget {
+class GamePage extends StatelessWidget {
   const GamePage({Key? key}) : super(key: key);
 
-  @override
-  State<GamePage> createState() => _GamePageState();
-}
+  void resetAppState(BuildContext context) {
+    // Reset the app state here
+    final wordCubit = context.read<WordCubit>();
+    final gameCubit = context.read<GameCubit>();
+    wordCubit.getRandomWord();
+    gameCubit.reset();
 
-class _GamePageState extends State<GamePage> {
-  @override
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((timestamp) {
-      final wordCubit = context.read<WordCubit>();
-      final gameCubit = context.read<GameCubit>();
-      wordCubit.getRandomWord();
-      gameCubit.reset();
-    });
+    // Navigate back to the start page
+    Navigator.pushNamedAndRemoveUntil(context, '/', (_) => false);
   }
 
   @override
@@ -37,6 +32,13 @@ class _GamePageState extends State<GamePage> {
         ),
         title: boldTextField('A little hangman game...', 20, 2),
         backgroundColor: AppColor.primaryColorRed,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.refresh, color: Colors.white),
+            onPressed: () =>
+                resetAppState(context), // Call the resetAppState function
+          ),
+        ],
       ),
       body: BlocBuilder<WordCubit, WordState>(
         builder: (context, state) {
@@ -44,7 +46,7 @@ class _GamePageState extends State<GamePage> {
             return const Center(
               child: CircularProgressIndicator(),
             );
-          } else if (state is ResponseWordState) {
+          } else if (state is WordLoadedState) {
             final word = state.chosenWord;
             return mainGame(context, word);
           } else if (state is ErrorWordState) {
