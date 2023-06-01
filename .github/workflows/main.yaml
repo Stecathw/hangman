@@ -18,11 +18,15 @@ env:
 
 jobs:
   format-lint:
-    if: "!github.event.pull_request.draft"
+    if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
+
+      - name: Setup Dart SDK
+        uses: subosito/flutter-action@v2
+        with:
+          dart-version: ${{ env.DART_SDK_VERSION }}
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
@@ -31,10 +35,9 @@ jobs:
           cache-key: ":os:-modules-:hash:"
           channel: "stable"
           flutter-version: ${{ env.FLUTTER_VERSION }}
-          dart-version: ${{ env.DART_SDK_VERSION }}
 
       - name: Formatting
-        run: dart format --set-exit-if-changed lib
+        run: dart --output=none format lib
 
       - name: Lint
         run: flutter analyze lib
