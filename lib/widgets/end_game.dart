@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hangman/cubits/game_cubit.dart';
 import 'package:hangman/models/word.dart';
 import 'package:hangman/utils/colors.dart';
+import 'package:hangman/utils/reset_app_state.dart';
 import 'package:hangman/widgets/bold_text_field.dart';
 
 Widget endGame(BuildContext context, bool isWon, Word word) {
@@ -14,7 +15,7 @@ Widget endGame(BuildContext context, bool isWon, Word word) {
       child: Column(
     children: <Widget>[
       Padding(
-        padding: const EdgeInsets.fromLTRB(20, 100, 20, 50),
+        padding: const EdgeInsets.fromLTRB(20, 50, 20, 50),
         child: SizedBox(
           width: 250,
           height: 250,
@@ -45,6 +46,29 @@ Widget endGame(BuildContext context, bool isWon, Word word) {
                 },
                 child: boldTextField('HOME', 28, 3)),
           )),
+      Padding(
+        padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
+        child: SizedBox(
+          height: 80,
+          width: 150,
+          child: GestureDetector(
+            onTap: () => resetAppState(context),
+            child: Container(
+              decoration: BoxDecoration(
+                color: AppColor.primaryColorRed,
+                borderRadius: BorderRadius.circular(5),
+              ),
+              child: const Center(
+                child: Icon(
+                  Icons.replay,
+                  size: 40,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
     ],
   ));
 }
