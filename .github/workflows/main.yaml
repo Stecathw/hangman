@@ -14,6 +14,7 @@ on:
 
 env:
   FLUTTER_VERSION: 3.0.0
+  DART_SDK_VERSION: 2.18.5
 
 jobs:
   format-lint:
@@ -30,6 +31,7 @@ jobs:
           cache-key: ":os:-modules-:hash:"
           channel: "stable"
           flutter-version: ${{ env.FLUTTER_VERSION }}
+          dart-version: ${{ env.DART_SDK_VERSION }}
 
       - name: Formatting
         run: dart format --set-exit-if-changed lib
