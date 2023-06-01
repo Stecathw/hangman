@@ -32,22 +32,7 @@ Widget endGame(BuildContext context, bool isWon, Word word) {
         ],
       ),
       Padding(
-          padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
-          child: SizedBox(
-            height: 80,
-            width: 150,
-            child: ElevatedButton(
-                style: ButtonStyle(
-                  backgroundColor:
-                      MaterialStatePropertyAll<Color>(AppColor.primaryColorRed),
-                ),
-                onPressed: () {
-                  Navigator.pushNamed(context, "/");
-                },
-                child: boldTextField('HOME', 28, 3)),
-          )),
-      Padding(
-        padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
+        padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
         child: SizedBox(
           height: 80,
           width: 150,

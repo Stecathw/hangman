@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hangman/cubits/word_cubit.dart';
 import 'package:hangman/cubits/word_state.dart';
-import 'package:hangman/utils/reset_app_state.dart';
 import 'package:hangman/widgets/app_bar.dart';
 import 'package:hangman/widgets/error.dart';
 import 'package:hangman/widgets/main_game.dart';
@@ -13,9 +12,7 @@ class GamePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(
-          onBackPressed: () => Navigator.pop(context),
-          onResetPressed: () => resetAppState(context)),
+      appBar: const CustomAppBar(),
       body: BlocBuilder<WordCubit, WordState>(
         builder: (context, state) {
           if (state is InitWordState || state is LoadingWordState) {
