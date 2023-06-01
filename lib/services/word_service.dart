@@ -13,7 +13,7 @@ class WordService {
   /// Returns a list of random [Word] objects.
   Future<List<Word>> fetchWords() async {
     final url =
-        "https://$apiHost/getMultipleRandom?count=5&minLength=3&maxLength=7";
+        'https://$apiHost/getMultipleRandom?count=5&minLength=3&maxLength=7';
     final headers = {
       'X-RapidAPI-Key': apiKey,
     };
@@ -30,7 +30,7 @@ class WordService {
       final result = json.map((e) => Word(word: e)).toList();
       return result;
     } else {
-      throw "Error: ${jsonDecode(response.body)}";
+      throw Exception('Error: ${jsonDecode(response.body)}');
     }
   }
 }

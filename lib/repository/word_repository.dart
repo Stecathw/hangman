@@ -12,7 +12,7 @@ class WordRepository {
     try {
       return await _wordService.fetchWords();
     } catch (error) {
-      throw "Error: $error";
+      throw Exception('Error: $error');
     }
   }
 

@@ -10,7 +10,7 @@ Widget endGame(BuildContext context, bool isWon, Word word) {
   final numberOfTries = context.read<GameCubit>().getTries();
   final wordString = word.word.toUpperCase();
   final msg = isWon ? 'Congratulation !' : 'Hanged !';
-  final imgPath = isWon ? "assets/hang.png" : "assets/hangman.png";
+  final imgPath = isWon ? 'assets/hang.png' : 'assets/hangman.png';
   return Center(
       child: Column(
     children: <Widget>[

@@ -6,7 +6,7 @@ import 'package:hangman/models/word.dart';
 import 'package:hangman/widgets/end_game.dart';
 import 'package:hangman/widgets/error.dart';
 import 'package:hangman/widgets/hang_image.dart';
-import 'package:hangman/widgets/keyboard.dart';
+import 'package:hangman/widgets/keyboard_grid.dart';
 import 'package:hangman/widgets/word_guess.dart';
 
 Widget mainGame(BuildContext context, Word word) {
@@ -24,7 +24,7 @@ Widget mainGame(BuildContext context, Word word) {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: wordToGuess(context, word),
             ),
-            Expanded(child: keyboard(context, word)),
+            Expanded(child: keyboardGrid(context, word)),
           ],
         );
       case LostGameState:

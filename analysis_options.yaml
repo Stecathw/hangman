@@ -10,20 +10,38 @@
 include: package:flutter_lints/flutter.yaml
 
 linter:
-  # The lint rules applied to this project can be customized in the
-  # section below to disable rules from the `package:flutter_lints/flutter.yaml`
-  # included above or to enable additional rules. A list of all available lints
-  # and their documentation is published at
-  # https://dart-lang.github.io/linter/lints/index.html.
-  #
-  # Instead of disabling a lint rule for the entire project in the
-  # section below, it can also be suppressed for a single line of code
-  # or a specific dart file by using the `// ignore: name_of_lint` and
-  # `// ignore_for_file: name_of_lint` syntax on the line or in the file
-  # producing the lint.
   rules:
-    # avoid_print: false  # Uncomment to disable the `avoid_print` rule
-    # prefer_single_quotes: true  # Uncomment to enable the `prefer_single_quotes` rule
+    # Always use package style import
+    always_use_package_imports: true
 
+    # Always declare return types for functions and methods.
+    always_declare_return_types: true
+
+    # Ensure that Stream subscriptions are canceled properly.
+    cancel_subscriptions: true
+
+    # Ensure that StreamController sinks are closed properly.
+    close_sinks: true
+
+    # Ensure that all comment references are valid.
+    comment_references: true
+
+    # Enforce having only one member in abstract classes.
+    one_member_abstracts: true
+
+    # Allow only throwing Error objects, not Exception or any other type.
+    only_throw_errors: true
+
+    # Prefer using 'final' for loop variables in 'forEach' loops.
+    prefer_final_in_for_each: true
+
+    # Prefer using single quotes for string literals.
+    prefer_single_quotes: true
+
+    # Specify the maximum line length
+    lines_longer_than_20_chars: true
+
+    # Enforce an indent of 2 spaces
+    indentation: 2
 # Additional information about this file can be found at
 # https://dart.dev/guides/language/analysis-options

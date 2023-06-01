@@ -5,7 +5,7 @@ import 'package:hangman/widgets/letter.dart';
 import 'package:flutter/material.dart';
 import 'package:hangman/utils/alphabet.dart';
 
-Widget keyboard(BuildContext context, Word word) {
+Widget keyboardGrid(BuildContext context, Word word) {
   final gameCubit = context.read<GameCubit>();
   return Padding(
       padding: const EdgeInsets.fromLTRB(2, 25, 2, 2),

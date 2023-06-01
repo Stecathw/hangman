@@ -17,7 +17,7 @@ class StartPage extends StatelessWidget {
                 child: SizedBox(
                   width: 250,
                   height: 250,
-                  child: Image.asset("assets/hangman.png"),
+                  child: Image.asset('assets/hangman.png'),
                 ),
               ),
               SizedBox(
@@ -29,7 +29,7 @@ class StartPage extends StatelessWidget {
                           AppColor.primaryColorRed),
                     ),
                     onPressed: () {
-                      Navigator.pushNamed(context, "/game");
+                      Navigator.pushNamed(context, '/game');
                     },
                     child: boldTextField('PLAY', 28, 3)),
               )
