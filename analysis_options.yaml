@@ -43,5 +43,11 @@ linter:
 
     # Enforce an indent of 2 spaces
     indentation: 2
+
+analyzer:
+  exclude:
+    - lib/main_development.dart
+    - lib/main_production.dart
 # Additional information about this file can be found at
 # https://dart.dev/guides/language/analysis-options
+
