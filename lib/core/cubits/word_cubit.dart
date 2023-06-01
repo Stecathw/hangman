@@ -13,8 +13,7 @@ class WordCubit extends Cubit<WordState> {
   Future<void> getRandomWord() async {
     emit(LoadingWordState());
     try {
-      // final words = await _repository.fetchWords();
-      final words = await _repository.getFiveFromLocal();
+      final words = await _repository.fetchWords();
       final random = Random();
       final chosenWord = words[random.nextInt(words.length)];
       if (kDebugMode) {

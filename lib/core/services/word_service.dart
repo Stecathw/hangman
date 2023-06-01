@@ -6,12 +6,17 @@ import 'package:http/http.dart' as http;
 class WordService {
   final String apiKey;
   final String apiHost;
+  final String languageCode;
 
-  WordService({required this.apiKey, required this.apiHost});
+  WordService({
+    required this.apiKey,
+    required this.apiHost,
+    required this.languageCode,
+  });
 
-  /// Makes an API call to get multiple random words.
+  /// Makes an API call to get multiple random words for English.
   /// Returns a list of random [Word] objects.
-  Future<List<Word>> fetchWords() async {
+  Future<List<Word>> fetchEnglishWords() async {
     final url =
         'https://$apiHost/getMultipleRandom?count=5&minLength=3&maxLength=7';
     final headers = {
@@ -31,6 +36,37 @@ class WordService {
       return result;
     } else {
       throw Exception('Error: ${jsonDecode(response.body)}');
+    }
+  }
+
+  /// Makes an API call to get a single random word for French.
+  /// Returns a single [Word] object.
+  Future<Word> fetchFrenchWord() async {
+    final url = 'https://trouve-mot.fr/api/random';
+    final uri = Uri.parse(url);
+
+    final response = await http.get(uri);
+
+    if (response.statusCode == 200) {
+      final json = jsonDecode(response.body) as List;
+      final frenchWordData = json.first;
+
+      final word = Word(
+        word: frenchWordData['name'],
+      );
+      return word;
+    } else {
+      throw Exception('Error: ${jsonDecode(response.body)}');
+    }
+  }
+
+  // Add more API calls for other languages
+  Future<List<Word>> fetchWords() async {
+    if (languageCode == 'fr') {
+      final frenchWord = await fetchFrenchWord();
+      return [frenchWord];
+    } else {
+      return fetchEnglishWords();
     }
   }
 }

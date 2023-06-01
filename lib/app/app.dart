@@ -19,6 +19,7 @@ class App extends StatelessWidget {
             final wordService = WordService(
               apiKey: dotenv.env['API_KEY']!,
               apiHost: dotenv.env['API_HOST']!,
+              languageCode: 'fr',
             );
             final wordRepository = WordRepository(wordService);
             final wordCubit = WordCubit(wordRepository);
