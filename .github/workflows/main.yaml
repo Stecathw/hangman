@@ -37,7 +37,7 @@ jobs:
           flutter-version: ${{ env.FLUTTER_VERSION }}
 
       - name: Formatting
-        run: dart --output=none format lib
+        run: dart format lib
 
       - name: Lint
         run: flutter analyze lib
