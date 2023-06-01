@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hangman/cubits/game_state.dart';
-import 'package:hangman/cubits/word_cubit.dart';
-import 'package:hangman/cubits/game_cubit.dart';
+import 'package:hangman/core/cubits/game_cubit.dart';
+import 'package:hangman/core/cubits/game_state.dart';
+import 'package:hangman/core/cubits/word_cubit.dart';
 import 'package:hangman/utils/colors.dart';
-import 'package:hangman/widgets/bold_text_field.dart';
+import 'package:hangman/core/components/bold_text_field.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({

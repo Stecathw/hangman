@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hangman/utils/colors.dart';
-import 'package:hangman/widgets/bold_text_field.dart';
+import 'package:hangman/core/components/bold_text_field.dart';
 
 class StartPage extends StatelessWidget {
   const StartPage({Key? key}) : super(key: key);

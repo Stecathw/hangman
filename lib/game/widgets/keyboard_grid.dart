@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hangman/cubits/game_cubit.dart';
-import 'package:hangman/models/word.dart';
-import 'package:hangman/widgets/letter.dart';
+import 'package:hangman/core/cubits/game_cubit.dart';
+import 'package:hangman/core/models/word.dart';
+import 'package:hangman/game/widgets/letter.dart';
 import 'package:flutter/material.dart';
 import 'package:hangman/utils/alphabet.dart';
 

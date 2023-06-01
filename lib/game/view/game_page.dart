@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hangman/cubits/word_cubit.dart';
-import 'package:hangman/cubits/word_state.dart';
-import 'package:hangman/widgets/custom_app_bar.dart';
-import 'package:hangman/widgets/error.dart';
-import 'package:hangman/widgets/main_game.dart';
+import 'package:hangman/core/cubits/word_cubit.dart';
+import 'package:hangman/core/cubits/word_state.dart';
+import 'package:hangman/core/components/custom_app_bar.dart';
+import 'package:hangman/core/components/error.dart';
+import 'package:hangman/game/widgets/main_game.dart';
 
 class GamePage extends StatelessWidget {
   const GamePage({Key? key}) : super(key: key);

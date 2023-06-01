@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
-import 'package:hangman/models/word.dart';
+import 'package:hangman/core/models/word.dart';
 import 'package:http/http.dart' as http;
 
 class WordService {

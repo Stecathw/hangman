@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hangman/views/start_page.dart';
-import 'package:hangman/views/game_page.dart';
+import 'package:hangman/start/view/start_page.dart';
+import 'package:hangman/game/view/game_page.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {

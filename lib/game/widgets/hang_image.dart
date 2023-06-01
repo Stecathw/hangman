@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hangman/cubits/game_cubit.dart';
+import 'package:hangman/core/cubits/game_cubit.dart';
 import 'package:hangman/utils/colors.dart';
 
 Widget hangPart(bool visible, String path) {

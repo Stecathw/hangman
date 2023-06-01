@@ -1,4 +1,4 @@
-import 'package:hangman/models/word.dart';
+import 'package:hangman/core/models/word.dart';
 
 abstract class WordState {}
 

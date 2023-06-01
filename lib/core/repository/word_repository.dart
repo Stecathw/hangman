@@ -1,5 +1,5 @@
-import 'package:hangman/models/word.dart';
-import 'package:hangman/services/word_service.dart';
+import 'package:hangman/core/models/word.dart';
+import 'package:hangman/core/services/word_service.dart';
 
 class WordRepository {
   final WordService _wordService;

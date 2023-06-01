@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hangman/cubits/game_cubit.dart';
-import 'package:hangman/models/word.dart';
+import 'package:hangman/core/cubits/game_cubit.dart';
+import 'package:hangman/core/models/word.dart';
 import 'package:hangman/utils/colors.dart';
 import 'package:hangman/utils/reset_app_state.dart';
-import 'package:hangman/widgets/bold_text_field.dart';
+import 'package:hangman/core/components/bold_text_field.dart';
 
 Widget endGame(BuildContext context, bool isWon, Word word) {
   final numberOfTries = context.read<GameCubit>().getTries();
