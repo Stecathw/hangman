@@ -12,10 +12,6 @@ on:
       - dev
       - stag
 
-env:
-  FLUTTER_VERSION: 3.0.0
-  DART_SDK_VERSION: 2.18.5
-
 jobs:
   format-lint:
     if: github.event.pull_request.draft == false
@@ -25,8 +21,6 @@ jobs:
 
       - name: Setup Dart SDK
         uses: subosito/flutter-action@v2
-        with:
-          dart-version: ${{ env.DART_SDK_VERSION }}
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
@@ -34,7 +28,6 @@ jobs:
           cache: true
           cache-key: ":os:-modules-:hash:"
           channel: "stable"
-          flutter-version: ${{ env.FLUTTER_VERSION }}
 
       - name: Formatting
         run: dart format lib
