@@ -1,11 +1,11 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hangman/cubits/game_cubit.dart';
-import 'package:hangman/models/word.dart';
-import 'package:hangman/widgets/letter.dart';
+import 'package:hangman/core/cubits/game_cubit.dart';
+import 'package:hangman/core/models/word.dart';
+import 'package:hangman/game/widgets/letter.dart';
 import 'package:flutter/material.dart';
 import 'package:hangman/utils/alphabet.dart';
 
-Widget keyboard(BuildContext context, Word word) {
+Widget keyboardGrid(BuildContext context, Word word) {
   final gameCubit = context.read<GameCubit>();
   return Padding(
       padding: const EdgeInsets.fromLTRB(2, 25, 2, 2),
@@ -21,7 +21,6 @@ Widget keyboard(BuildContext context, Word word) {
                     onTap: () {
                       if (!isChosen) {
                         gameCubit.addLetter(l, word);
-                        // gameCubit.getChosenLetters();
                       }
                     },
                     child: letter(l, isChosen)));

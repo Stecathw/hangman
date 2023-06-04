@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hangman/cubits/game_state.dart';
-import 'package:hangman/models/word.dart';
+import 'package:hangman/core/cubits/game_state.dart';
+import 'package:hangman/core/models/word.dart';
 
 /// {@template game_cubit}
 /// A simple [Cubit] that manages `GameState` as its state.

@@ -1,4 +1,4 @@
-import 'package:hangman/models/word.dart';
+import 'package:hangman/core/models/word.dart';
 
 abstract class WordState {}
 
@@ -11,8 +11,8 @@ class ErrorWordState extends WordState {
   ErrorWordState(this.error);
 }
 
-class ResponseWordState extends WordState {
+class WordLoadedState extends WordState {
   final List<Word> words;
   final Word chosenWord;
-  ResponseWordState(this.words, this.chosenWord);
+  WordLoadedState(this.words, this.chosenWord);
 }

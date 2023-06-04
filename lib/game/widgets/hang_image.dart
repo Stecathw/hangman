@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hangman/cubits/game_cubit.dart';
+import 'package:hangman/core/cubits/game_cubit.dart';
 import 'package:hangman/utils/colors.dart';
 
 Widget hangPart(bool visible, String path) {
@@ -17,13 +17,13 @@ Widget hangState(int tries) {
   return Center(
       child: Stack(
     children: [
-      hangPart(tries >= 0, "assets/hang.png"),
-      hangPart(tries >= 1, "assets/head.png"),
-      hangPart(tries >= 2, "assets/body.png"),
-      hangPart(tries >= 3, "assets/ra.png"),
-      hangPart(tries >= 4, "assets/la.png"),
-      hangPart(tries >= 5, "assets/rl.png"),
-      hangPart(tries >= 6, "assets/ll.png"),
+      hangPart(tries >= 0, 'assets/hang.png'),
+      hangPart(tries >= 1, 'assets/head.png'),
+      hangPart(tries >= 2, 'assets/body.png'),
+      hangPart(tries >= 3, 'assets/ra.png'),
+      hangPart(tries >= 4, 'assets/la.png'),
+      hangPart(tries >= 5, 'assets/rl.png'),
+      hangPart(tries >= 6, 'assets/ll.png'),
     ],
   ));
 }

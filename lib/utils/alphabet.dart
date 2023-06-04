@@ -1,28 +1,14 @@
-const List<String> letters = [
-  "A",
-  "B",
-  "C",
-  "D",
-  "E",
-  "F",
-  "G",
-  "H",
-  "I",
-  "J",
-  "K",
-  "L",
-  "M",
-  "N",
-  "O",
-  "P",
-  "Q",
-  "R",
-  "S",
-  "T",
-  "U",
-  "V",
-  "W",
-  "X",
-  "Y",
-  "Z"
-];
+const int _asciiUpperCaseA = 65;
+const int _asciiUpperCaseZ = 90;
+
+List<String> generateAlphabet() {
+  final List<String> alphabet = [];
+
+  for (var i = _asciiUpperCaseA; i <= _asciiUpperCaseZ; i++) {
+    alphabet.add(String.fromCharCode(i));
+  }
+
+  return alphabet;
+}
+
+final List<String> letters = generateAlphabet();
