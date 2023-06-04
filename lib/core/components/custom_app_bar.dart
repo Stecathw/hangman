@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hangman/core/cubits/game_cubit.dart';
 import 'package:hangman/core/cubits/game_state.dart';
 import 'package:hangman/core/cubits/word_cubit.dart';
+import 'package:hangman/l10n/l10n.dart';
 import 'package:hangman/utils/colors.dart';
 import 'package:hangman/core/components/bold_text_field.dart';
 
@@ -34,7 +35,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               Navigator.pop(context);
             },
           ),
-          title: boldTextField('A little hangman game...', 20, 2),
+          title: boldTextField(AppLocalizations.of(context)!.hangman, 20, 2),
           backgroundColor: AppColor.primaryColorRed,
           actions: !isGameOver
               ? [

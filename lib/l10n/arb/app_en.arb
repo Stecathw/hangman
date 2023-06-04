@@ -1,0 +1,8 @@
+{
+  "hangman": "Hangman game",
+  "play": "Play",
+  "congratulation": "Congratulation !",
+  "hanged": "Hanged !",
+  "word": "Word",
+  "tries": "Bad tries"
+}

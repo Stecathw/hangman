@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:hangman/core/models/word.dart';
 import 'package:http/http.dart' as http;
+import 'package:diacritic/diacritic.dart';
 
 class WordService {
   final String apiKey;
@@ -42,7 +43,7 @@ class WordService {
   /// Makes an API call to get a single random word for French.
   /// Returns a single [Word] object.
   Future<Word> fetchFrenchWord() async {
-    final url = 'https://trouve-mot.fr/api/random';
+    final url = 'https://trouve-mot.fr/api/sizemax/7';
     final uri = Uri.parse(url);
 
     final response = await http.get(uri);
@@ -52,7 +53,7 @@ class WordService {
       final frenchWordData = json.first;
 
       final word = Word(
-        word: frenchWordData['name'],
+        word: removeDiacritics(frenchWordData['name']),
       );
       return word;
     } else {
