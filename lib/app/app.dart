@@ -19,7 +19,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return Builder(
       builder: (context) {
-        final languageCode = window.locale.languageCode;
+        final languageCode = WidgetsBinding.instance.window.locale.languageCode;
 
         return MultiBlocProvider(
           providers: [
