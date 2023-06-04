@@ -1,8 +1,0 @@
-workflows:
-  version: 1
-  build:
-    scripts:
-      - echo $API_KEY | base64 --decode > $FCI_BUILD_DIR/.env
-      - echo $API_HOST | base64 --decode >> $FCI_BUILD_DIR/.env
-      - flutter pub get
-      - flutter build apk
