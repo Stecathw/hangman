@@ -1,100 +1,133 @@
-# HANGMAN
+# Hangman Game
 
-Un jeu mobile du pendu.
+[![Codemagic build status](https://api.codemagic.io/apps/647ca0717007fae185dff619/647ca0717007fae185dff618/status_badge.svg)](https://codemagic.io/apps/647ca0717007fae185dff619/647ca0717007fae185dff618/latest_build)
 
-Les mots à deviner sont en anglais.
+Hangman is a simple word-guessing game built with Flutter.
 
-## Aperçu global :
+[🇫🇷 Lire en français](README_FR.md)
 
-+ La page de démarrage :
+## Features
 
-<img src="schema/start_page.png">
+- Randomly selects a word for the player to guess.
+- Displays the word as a series of blanks representing each letter.
+- Allows the player to guess letters and reveals the correct ones.
+- Tracks the number of incorrect guesses and displays a hangman drawing.
+- Provides feedback on the game's outcome (win or loss).
+- Supports multiple languages through localization.
 
-+ Durant une partie :
+## Environment Variables
 
-<img src="schema/play_page.png">
+Before running the application, make sure to set the following environment variables:
 
-+ Si pendu avant de trouver le mot :
+- `API_KEY`: Your API key for accessing external services.
+- `API_HOST`: The host URL for the API.
 
-<img src="schema/hang_page.png">
+## Getting Started
 
-## Vidéo de 10 min
+### Prerequisites
 
-https://ag3il-my.sharepoint.com/:v:/g/personal/singhp_3il_fr/EevHEUf4oMRIsuSYem5LJAsBZVAyJuDZqmrp6nzfee2MKQ
+- Flutter SDK (v2.5.0 or higher)
+- Dart SDK (v2.14.0 or higher)
 
-## Genèse :
+### Installation
 
-L'idée du projet est de travailler en collaboration sur une application Flutter 
-suite à l'introduction de notions de qualité code source.
+Clone the repository:
 
-Il s'agit donc de mettre en oeuvre et de se poser des questions quant à l'ogranisation du projet, le versionnage, la gestion de l'architecture et l'écriture du code. (principes SOLID)
+```bash
+git clone https://github.com/your-username/hangman.git
+```
 
-De même il s'agit pour nous de s'initier au framework Flutter et au language Dart.
+Navigate to the project directory:
 
-## Organisation :
+```bash
+cd hangman
+```
 
-Avant tout développement, nous avons "brainstormé" sur le fonctionnement global de notre pendu et imaginé 
-un MVP (Minmal Viable Product) évolutif.
+Get the required dependencies:
 
-Pour cela nous avons travaillé autour de ce logigramme:
+```bash
+flutter pub get
+```
 
-![Project](schema/QCS_project.jpg)
+### Usage
 
-Le projet est versionné avec GIT et en respectant les standards sur les commits et les conseils sur la gestion des branches. La branche main de ce projet est donc la version du jeu sortie, les autres branches sont réservées au développement.
+Run the application:
 
-## Gestion de l'état :
+```bash
+flutter run
+```
 
-C'est la partie la plus difficile à prendre en main lorsqu'on démarre avec Flutter. La différence fondamentale avec le web est la reconstruction complète du widget lorsque celui-ci est à l'écoute d'un changement d'état. Dans le web, on cherche plutôt à avoir de la réactivité sur le ou les seuls élements devant changer indépendamments du reste de la page.
+Play the Hangman game by guessing letters to reveal the hidden word.
 
-Pour gérer l'état de l'application nous utilisations l'architecture 3 couches, basée sur le principe Bloc, présentées ici :
-https://bloclibrary.dev/#/fluttertodostutorial
+> **Note**: Make sure you have a connected device or emulator to run the game.
 
-Ainsi, la logigue du cubit joue l'intermédiaire entre l'UI et son état et vice versa. 
+### Localization
 
-De plus, le repository permet de joindre une API et en cas de changement de cette dernière nous pouvons facilement adapter notre code (et nous avons dû le faire plusieurs fois avant d'en trouver une correcte et simple).
+The game supports localization in multiple languages (only french and english at the moment). To switch to a different language, update the `supportedLocales` list in the `l10n.dart` file.
 
-Nous avons donc utilisé le package flutter_bloc avec les cubits. Voici un schéma représentant le fonctionnement de la requête API sur le principe du Bloc :
+### Testing
 
-![Architecture](schema/QCS_Cubit.jpg)
+To run the unit tests, use the following command:
 
-## DEVELOPPER
+```bash
+flutter test
+```
 
-## Démarrer le projet :
+To run the integration tests, use the following command:
 
-- Copier le repo : git clone <url>
-- Installer les dépendances : flutter get pub
-- (optionel) Créer un compte sur rapidAPi (cf ## API) 
-- (optionel) Ajouter les variables d'environnements (cf ## Variables d'environnements)
-- Lancer le projet localement (optimisé pour un pixel 3a)
+```bash
+flutter drive --target=test_driver/app.dart
+```
 
-## Branches
+> **Note**: Make sure you have a connected device or emulator to run the tests.
 
-- main : pour les nouvelles versions seulement
-- dev : pour le développement et créer de nouvelles features
-- feature/nom-de-la-feature : la nouvelle feature à merge dans la branche dev
+### Code Analysis and Formatting
 
-## Contribuer au projet :
+The project includes linting and code analysis tools to maintain code quality. Before committing your changes, it is recommended to run the following commands to ensure code correctness:
 
-### Problèmes rencontrés :
+- Run static analysis using `dart analyze`:
 
-Créer une issue ou envoyer un message.
+```bash
+	dart analyze
+```
 
-### Développer une feature :
+- Format the code using `dart format`:
 
-Créer une branche feature/nom-de-la-feature à partir de la branche dev.
-Une fois le développement fini faire une demande de merge dans la branche dev.
+```bash
+	dart format .
+```
 
-## API :
+> **Note**: The linting stage is configured in the GitHub workflow file.
 
-Lien vers l'API de mots aléatoires :
-https://rapidapi.com/sheharyar566/api/random-words5
+### GitHub Repository
 
-Pour tester le jeu sans utiliser d'API (limitée à 250 req/mois), il est possible d'utiliser une fonction donnant une liste de mot en local (getFiveFromLocal() dans le word_repository)
+The GitHub repository for this project can be found at: [Stecathw/hangman](https://https://github.com/Stecathw/hangman)
 
-## Variables d'environnements :
+The repository contains the following branches:
 
-A la racine du projet ajouter les variables d'environnements suivantes afin d'avoir des mots alétoires provenant de l'API :
+- `main`: The main branch for production-ready code.
+- `dev`: The development branch for ongoing development and feature integration.
 
-- [API_KEY]  : Your private api key from rapid api
-- [API_HOST] : Your private host api url from rapid api
+### Deployment
 
+The project is set up for CodeMagic deployment. You can track the latest build status by clicking on the Codemagic build status badge at the top of this file.
+
+A web version is accessible here : [https://hangman.codemagic.app/](https://hangman.codemagic.app/)
+
+> **Note**: In your navigator, inspect element and make the page responsive. Change the device to a Pixel for best settings.
+
+### Screenshots
+
+![Start Page](schema/start_page.png)
+
+![Play page](schema/play_page.png)
+
+![Hang page](schema/hang_page.png)
+
+### Contributing
+
+Contributions are welcome! If you find any issues or have suggestions for improvements, feel free to open an issue or submit a pull request.
+
+### License
+
+This project is licensed under the MIT License.
