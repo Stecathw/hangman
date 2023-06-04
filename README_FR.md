@@ -4,7 +4,7 @@
 
 Le Pendu est un jeu de devinette de mots simple développé avec Flutter.
 
-[🇺🇸 Read in English](readme.md)
+[🇺🇸 Read in English](README.md)
 
 ## Fonctionnalités
 
