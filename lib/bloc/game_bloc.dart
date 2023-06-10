@@ -7,7 +7,6 @@ class GameBloc extends Bloc<GameEvent, GameState> {
   final Word chosenWord;
   GameBloc(this.chosenWord) : super(PlayGameState(chosenLetters: [], tries: 0));
 
-  @override
   Stream<GameState> mapEventToState(GameEvent event) async* {
     if (event is AddLetterEvent) {
       final String letter = event.letter;
