@@ -32,8 +32,6 @@ class MyApp extends StatelessWidget {
           create: (context) => WordCubit(wordRepository),
         ),
         BlocProvider<GameBloc>(
-          // create: (context) => GameCubit(),
-          // create: (context) => GameBloc(chosenWord: )..add(reset()),
           create: (context) {
             final wordCubit = BlocProvider.of<WordCubit>(context);
             final chosenWord = (wordCubit.state as WordLoadedState).chosenWord;
