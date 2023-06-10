@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hangman/cubits/game_cubit.dart';
+import 'package:hangman/bloc/game_bloc.dart';
+import 'package:hangman/bloc/game_event.dart';
 import 'package:hangman/cubits/word_cubit.dart';
 import 'package:hangman/cubits/word_state.dart';
 import 'package:hangman/widgets/bold_text_field.dart';
@@ -21,9 +22,9 @@ class _GamePageState extends State<GamePage> {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((timestamp) {
       final wordCubit = context.read<WordCubit>();
-      final gameCubit = context.read<GameCubit>();
+      final gameBloc = context.read<GameBloc>();
+      gameBloc.add(ResetGameEvent());
       wordCubit.getRandomWord();
-      gameCubit.reset();
     });
   }
 
@@ -44,7 +45,7 @@ class _GamePageState extends State<GamePage> {
             return const Center(
               child: CircularProgressIndicator(),
             );
-          } else if (state is ResponseWordState) {
+          } else if (state is WordLoadedState) {
             final word = state.chosenWord;
             return mainGame(context, word);
           } else if (state is ErrorWordState) {

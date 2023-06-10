@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hangman/cubits/game_cubit.dart';
+import 'package:hangman/bloc/game_bloc.dart';
 import 'package:hangman/models/word.dart';
 import 'package:hangman/utils/colors.dart';
 import 'package:hangman/widgets/bold_text_field.dart';
 
 Widget endGame(BuildContext context, bool isWon, Word word) {
-  final numberOfTries = context.read<GameCubit>().getTries();
+  final numberOfTries = context.read<GameBloc>().getTries();
   final wordString = word.word.toUpperCase();
   final msg = isWon ? 'Congratulation !' : 'Hanged !';
   final imgPath = isWon ? "assets/hang.png" : "assets/hangman.png";

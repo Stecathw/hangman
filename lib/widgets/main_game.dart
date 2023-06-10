@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hangman/cubits/game_cubit.dart';
+import 'package:hangman/bloc/game_bloc.dart';
 import 'package:hangman/cubits/game_state.dart';
 import 'package:hangman/models/word.dart';
 import 'package:hangman/widgets/end_game.dart';
@@ -10,7 +10,7 @@ import 'package:hangman/widgets/keyboard.dart';
 import 'package:hangman/widgets/word_guess.dart';
 
 Widget mainGame(BuildContext context, Word word) {
-  return BlocBuilder<GameCubit, GameState>(
+  return BlocBuilder<GameBloc, GameState>(
       builder: (BuildContext context, state) {
     switch (state.runtimeType) {
       case PlayGameState:

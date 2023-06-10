@@ -20,7 +20,7 @@ class WordCubit extends Cubit<WordState> {
         print(words.map((w) => w.word));
         print(chosenWord.word);
       }
-      emit(ResponseWordState(words, chosenWord));
+      emit(WordLoadedState(words, chosenWord));
     } catch (err) {
       emit(ErrorWordState(err.toString()));
     }

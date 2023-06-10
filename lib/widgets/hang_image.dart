@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hangman/cubits/game_cubit.dart';
+import 'package:hangman/bloc/game_bloc.dart';
 import 'package:hangman/utils/colors.dart';
 
 Widget hangPart(bool visible, String path) {
@@ -29,8 +29,8 @@ Widget hangState(int tries) {
 }
 
 Widget hangImage(BuildContext context) {
-  final gameCubit = context.read<GameCubit>();
-  final tries = gameCubit.getTries();
+  final gameBloc = context.read<GameBloc>();
+  final tries = gameBloc.getTries();
   return Padding(
     padding: const EdgeInsets.fromLTRB(20, 50, 20, 20),
     child: SizedBox(width: 250, height: 250, child: hangState(tries)),
