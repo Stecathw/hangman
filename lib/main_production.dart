@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hangman/cubits/game_cubit.dart';
+import 'package:hangman/bloc/game_bloc.dart';
 import 'package:hangman/cubits/word_cubit.dart';
 import 'package:hangman/services/word_service.dart';
 import 'package:hangman/views/start_page.dart';
 import 'package:hangman/views/game_page.dart';
 import 'package:hangman/repository/word_repository.dart';
+
+import 'cubits/word_state.dart';
 
 Future<void> main() async {
   await dotenv.load(fileName: '.env.production');
@@ -30,8 +32,12 @@ class MyApp extends StatelessWidget {
         BlocProvider<WordCubit>(
           create: (context) => WordCubit(wordRepository),
         ),
-        BlocProvider<GameCubit>(
-          create: (context) => GameCubit(),
+        BlocProvider<GameBloc>(
+          create: (context) {
+            final wordCubit = BlocProvider.of<WordCubit>(context);
+            final chosenWord = (wordCubit.state as WordLoadedState).chosenWord;
+            return GameBloc(chosenWord);
+          },
         ),
       ],
       child: MaterialApp(
