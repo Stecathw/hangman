@@ -6,6 +6,10 @@ Le Pendu est un jeu de devinette de mots simple développé avec Flutter.
 
 [🇺🇸 Read in English](README.md)
 
+## Vidéo de présentation :
+
+[Video youtube !](https://www.youtube.com/watch?v=eGDrX68lhpI&ab_channel=Stecathw)
+
 ## Fonctionnalités
 
 - Sélectionne aléatoirement un mot pour que le joueur devine.

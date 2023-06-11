@@ -6,6 +6,10 @@ Hangman is a simple word-guessing game built with Flutter.
 
 [🇫🇷 Lire en français](README_FR.md)
 
+## Introduction video :
+
+[Youtube video link !](https://www.youtube.com/watch?v=eGDrX68lhpI&ab_channel=Stecathw)
+
 ## Features
 
 - Randomly selects a word for the player to guess.
